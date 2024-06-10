@@ -1,6 +1,7 @@
 "use server";
 
 import connectionDB from "@/Database/connectionDB.";
+import DonationForm from "@/components/DonationForm";
 import { ProfileInfo, ProfileInfoModel } from "@/models/ProfileInfoModel";
 import Image from "next/image";
 import { CiCoffeeCup } from "react-icons/ci";
@@ -56,13 +57,14 @@ export default async function SingleProfilePage({ params }: Props) {
           <div className="grid grid-cols-2 gap-4 mt-4">
             <div className="bg-white p-4 rounded-lg shadow-sm">
               <h3 className="font-medium">About {profileInfoDoc.username}</h3>
-              {profileInfoDoc.bio}
+              <span className="">{profileInfoDoc.bio}</span>
               <hr className="my-4 " />
               <h3 className="font-medium">Recent supporters</h3>
               <p>no recent donations</p>
             </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              Form for new donate
+            <div className="bg-white rounded-xl p-4 shadow-sm">
+              {" "}
+              <DonationForm />
             </div>
           </div>
         </div>
